@@ -23,6 +23,8 @@ router.get("/api/csrf/restore", (req, res) => {
 // ...
 
 router.use("/api", apiRouter) // ALL routes for this entire project begin with "/api"
+process.env.NODE_ENV = "production"
+console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV === "production") {
   const path = require("path")
   // Serve the frontend's index.html file at the root route
