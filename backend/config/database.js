@@ -14,8 +14,10 @@ module.exports = {
     storage: process.env.DB_FILE,
     dialect: "sqlite",
     seederStorage: "sequelize",
+    logging: false,
     define: {
-      schema: process.env.SCHEMA
+      // Remove the schema definition for SQLite
+      // schema: process.env.SCHEMA  // Remove or comment out this line
     }
   }
 };

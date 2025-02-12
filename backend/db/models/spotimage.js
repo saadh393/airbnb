@@ -1,4 +1,4 @@
- 'use strict';
+'use strict';
 
 const {
   Model, Validator
@@ -40,8 +40,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {
-    sequelize,
-    modelName: 'SpotImage',
+    // In the init options object:
+    
+      sequelize,
+      modelName: 'SpotImage',
+      tableName: 'SpotImages'  // Add this line
+    
   });
   return SpotImage;
 };

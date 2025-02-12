@@ -161,9 +161,12 @@ module.exports = (sequelize, DataTypes) => {
         notNull: { msg: 'Price per day must be a positive number' }
       }
     }
-  }, {
-    sequelize,
-    modelName: 'Spot',
+  }, 
+    // In the init options object:
+    {
+      sequelize,
+      modelName: 'Spot',
+      tableName: 'Spots'  // Add this line
   });
   return Spot;
 };

@@ -47,9 +47,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false
     }
-  }, {
-    sequelize,
-    modelName: 'Booking',
+  }, 
+    // In the init options object:
+    {
+      sequelize,
+      modelName: 'Booking',
+      tableName: 'Bookings'  // Add this line
+    
   });
   return Booking;
 };

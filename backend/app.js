@@ -6,6 +6,7 @@ const csurf = require("csurf")
 const helmet = require("helmet")
 const cookieParser = require("cookie-parser")
 const { ValidationError } = require("sequelize")
+const { sequelize } = require("./db/models")
 
 const { environment } = require("./config")
 const isProduction = environment === "production"
@@ -13,6 +14,11 @@ const isProduction = environment === "production"
 const routes = require("./routes") // import from index file in routes directory
 
 const app = express()
+
+// Initialize database and create tables
+sequelize.sync({ force: false }).catch(err => {
+  console.error('Error syncing database:', err);
+});
 
 app.use(morgan("dev"))
 app.use(cookieParser()) // access csurf tokens and jwts

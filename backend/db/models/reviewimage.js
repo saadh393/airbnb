@@ -36,8 +36,10 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   }, {
-    sequelize,
-    modelName: 'ReviewImage',
+    // In the init options object:
+      sequelize,
+      modelName: 'ReviewImage',
+      tableName: 'ReviewImages'  // Add this line
   });
   return ReviewImage;
 };
