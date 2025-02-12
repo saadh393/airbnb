@@ -8,7 +8,7 @@
     "install:client": "npm --prefix frontend install frontend",
     "start:server": "npm start --prefix backend",
     "start:client": "npm run --prefix frontend preview",
-    "build": "npm run --prefix frontend build",
+    "build": "npm install --prefix frontend && npm run --prefix frontend build",
     "prod": "npm run --prefix backend start"
   },
   "keywords": [],
