@@ -11,15 +11,9 @@ module.exports = {
     logging: true
   },
   production: {
-    use_env_variable: 'DATABASE_URL',
-    dialect: 'postgres',
-    seederStorage: 'sequelize',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
-      }
-    },
+    storage: process.env.DB_FILE,
+    dialect: "sqlite",
+    seederStorage: "sequelize",
     define: {
       schema: process.env.SCHEMA
     }
